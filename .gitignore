@@ -7,3 +7,5 @@ vendor
 .DS_Store
 src/decho
 src/go.sum
+src/test-coverage.out
+src/test-report.json
