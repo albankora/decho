@@ -1,0 +1,9 @@
+# golang vendor (dependencies) directory
+vendor
+.vscode
+.idea
+.git
+.env
+.DS_Store
+src/decho
+src/go.sum

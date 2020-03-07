@@ -1,0 +1,6 @@
+vendor/
+.vscode
+.idea
+.git
+.DS_Store
+.env.example

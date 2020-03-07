@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: build/dev.Dockerfile
+    environment:
+      APP_ENV: "${APP_ENV}"
+      APP_NAME: "${APP_NAME}"
+    volumes:
+      - ./src/:/app
+      - cache:/go
+      - build-cache:/root/.cache
+    networks:
+      - appnet
+    ports:
+      - "80:80"
+
+networks:
+  appnet:
+    driver: bridge
+
+volumes:
+  cache:
+  build-cache:
