@@ -26,6 +26,7 @@ Commands:
 ```bash
 # build the docker container 
 ./app build
+
 # run the docker container
 ./app run
 ```
