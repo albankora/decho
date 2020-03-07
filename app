@@ -6,18 +6,16 @@ function usage() {
   echo ""
   echo "Commands:"
   echo ""
-  echo "  build          Build docker environment"
-  echo "  run            Run local app"
-  echo "  down           Remove the docker enviroemnt"
-  echo "  test           Run unit tests"
-  echo "  cover          Run unit tests and generate coverage file"
-  echo "  vet            Check and reports suspicious constructs"
-  echo "  fmt            Format the code with go standards"
-  echo "  bash           Enter the bash interface"
-  echo "  mod  [COMMAND] Command to wrok with modules"
-  echo "  compile        Compile the project to a binary"
-  echo "  prd            Build production image"
-  echo "  rprd           Run production image"
+  echo "  build         Build docker environment"
+  echo "  run           Run local app"
+  echo "  test          Run unit tests"
+  echo "  cover         Run unit tests and generate coverage file"
+  echo "  fmt           Format the code with go standards"
+  echo "  vet           Check and reports suspicious constructs"
+  echo "  bash          Enter the bash interface"
+  echo "  prd           Build production image"
+  echo "  rprd          Run production image"
+  echo "  mod [COMMAND] Command to manage go modules"
   echo ""
   exit 0
 }
@@ -34,9 +32,6 @@ if [ $# -gt 0 ];then
 
     elif [ "$1" == "run" ]; then
         ${COMPOSE} run --rm -p 80:3000 ${APP_NAME}
-
-    elif [ "$1" == "clean" ]; then
-        ${COMPOSE} down -v --rmi all --remove-orphans
 
     elif [ "$1" == "test" ]; then
         ${COMPOSE} run --rm ${APP_NAME} go test -v ./...
@@ -57,10 +52,6 @@ if [ $# -gt 0 ];then
     elif [ "$1" == "mod" ]; then
         shift 1
         ${COMPOSE} run --rm ${APP_NAME} go mod $@
-
-    elif [ "$1" == "compile" ]; then
-        shift 1
-        ${COMPOSE} run --rm ${APP_NAME} go build -ldflags '-w -s' -a -installsuffix cgo -o decho decho/cmd/decho
 
     elif [ "$1" == "prd" ]; then
         shift 1
