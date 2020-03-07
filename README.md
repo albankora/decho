@@ -4,7 +4,7 @@ Docker setup for [Echo framework](https://github.com/labstack/echo)
 Commands scripts
 
 ```bash
-./app
+./app {cmd}
 ```
 
 The commands list:
