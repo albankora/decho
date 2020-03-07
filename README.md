@@ -1,2 +1,2 @@
-# decho
-GO Echo Framework on Docker 
+# DECHO
+Docker setup for Echo Framework 
