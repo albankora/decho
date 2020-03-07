@@ -1,14 +1,12 @@
 # DECHO
 Docker setup for [Echo framework](https://github.com/labstack/echo)
 
-Commands scripts
-
+## Commands scripts
 ```bash
 ./app {cmd}
 ```
 
-The commands list:
-
+## The commands list:
 ```bash
 Commands:
 
@@ -22,4 +20,21 @@ Commands:
  prd           Build production image
  rprd          Run production image
  mod [COMMAND] Command to manage go modules
+```
+
+## Initialize local dev
+```bash
+# build the docker container 
+./app build
+# run the docker container
+./app run
+```
+
+## Rerun on the fly
+DECHO uses [Reflex](https://github.com/cespare/reflex) for re-running your app when files change
+
+## Production docker image
+```bash
+# creates a docker production image
+./app prd
 ```
