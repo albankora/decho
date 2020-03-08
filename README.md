@@ -10,8 +10,7 @@ Docker setup for [Echo framework](https://github.com/labstack/echo)
 ```bash
 Commands:
 
- build         Build docker environment
- run           Run local dev app
+ run           Build and Run local dev app
  test          Run unit tests
  cover         Run unit tests and generate coverage file
  fmt           Format the code with go standards
@@ -24,9 +23,6 @@ Commands:
 
 ## Initialize local dev
 ```bash
-# build the docker container 
-./app build
-
 # run the docker container
 ./app run
 ```
