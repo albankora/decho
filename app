@@ -7,6 +7,8 @@ function usage() {
   echo "Commands:"
   echo ""
   echo " run           Build and Run local dev app"
+  echo " stop          Stop your local container"
+  echo " remove        Remove local containers and everything related to them"
   echo " test          Run unit tests"
   echo " cover         Run unit tests and generate coverage file"
   echo " fmt           Format the code with go standards"
@@ -28,7 +30,13 @@ if [ $# -gt 0 ];then
         ${COMPOSE} build
         ${COMPOSE} run --rm -w /go ${APP_NAME} go get github.com/cespare/reflex
         ${COMPOSE} run --rm ${APP_NAME} go get -d -v ./...
-        ${COMPOSE} run --rm -p 80:3000 ${APP_NAME}
+        ${COMPOSE} up ${APP_NAME}
+
+    elif [ "$1" == "stop" ]; then
+        ${COMPOSE} stop
+
+    elif [ "$1" == "remove" ]; then
+        ${COMPOSE} down -v --rmi all --remove-orphans
 
     elif [ "$1" == "test" ]; then
         ${COMPOSE} run --rm ${APP_NAME} go test -v ./...

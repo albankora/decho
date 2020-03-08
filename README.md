@@ -11,6 +11,8 @@ Docker setup for [Echo framework](https://github.com/labstack/echo)
 Commands:
 
  run           Build and Run local dev app
+ stop          Stop your local container
+ remove        Remove local containers and everything related to them
  test          Run unit tests
  cover         Run unit tests and generate coverage file
  fmt           Format the code with go standards

@@ -14,7 +14,7 @@ services:
     networks:
       - appnet
     ports:
-      - "80:80"
+      - "80:3000"
 
 networks:
   appnet:
