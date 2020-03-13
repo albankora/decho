@@ -17,6 +17,7 @@ function usage() {
   echo " prd           Build production image"
   echo " rprd          Run production image"
   echo " mod [COMMAND] Command to manage go modules"
+  echo " codegen       Generate code from the open api documentation"
   echo ""
   exit 0
 }
@@ -29,6 +30,7 @@ if [ $# -gt 0 ];then
     if [ "$1" == "run" ]; then
         ${COMPOSE} build
         ${COMPOSE} run --rm -w /go ${APP_NAME} go get github.com/cespare/reflex
+        ${COMPOSE} run --rm -w /go ${APP_NAME} go get github.com/deepmap/oapi-codegen
         ${COMPOSE} run --rm ${APP_NAME} go get -d -v ./...
         ${COMPOSE} up ${APP_NAME}
 
@@ -39,20 +41,20 @@ if [ $# -gt 0 ];then
         ${COMPOSE} down -v --rmi all --remove-orphans
 
     elif [ "$1" == "test" ]; then
-        ${COMPOSE} run --rm ${APP_NAME} go test -v ./...
+        ${COMPOSE} exec ${APP_NAME} go test -v ./...
 
     elif [ "$1" == "cover" ]; then
-        ${COMPOSE} run --rm ${APP_NAME} go test ./... -coverprofile=test-coverage.out
-        ${COMPOSE} run --rm ${APP_NAME} go test ./... -json | sed -n '1!p' > src/test-report.json
+        ${COMPOSE} exec ${APP_NAME} go test ./... -coverprofile=test-coverage.out
+        ${COMPOSE} exec ${APP_NAME} go test ./... -json | sed -n '1!p' > src/test-report.json
 
     elif [ "$1" == "fmt" ]; then
-        ${COMPOSE} run --rm ${APP_NAME} go fmt ./...
+        ${COMPOSE} exec ${APP_NAME} go fmt ./...
     
     elif [ "$1" == "vet" ]; then
-        ${COMPOSE} run --rm ${APP_NAME} go vet ./...
+        ${COMPOSE} exec ${APP_NAME} go vet ./...
 
     elif [ "$1" == "bash" ]; then
-        ${COMPOSE} run --rm ${APP_NAME} /bin/bash
+        ${COMPOSE} exec ${APP_NAME} /bin/bash
 
     elif [ "$1" == "prd" ]; then
         shift 1
@@ -64,10 +66,14 @@ if [ $# -gt 0 ];then
 
     elif [ "$1" == "mod" ]; then
         shift 1
-        ${COMPOSE} run --rm ${APP_NAME} go mod $@
-        
+        ${COMPOSE} exec ${APP_NAME} go mod $@
+
+    elif [ "$1" == "codegen" ]; then
+        shift 1
+        ${COMPOSE} exec ${APP_NAME} oapi-codegen --package=openapi --generate types -o internal/openapi/types.go /docs/petstore.yaml 
+        ${COMPOSE} exec ${APP_NAME} oapi-codegen --package=openapi --generate server,spec -o internal/openapi/server.go /docs/petstore.yaml 
     else
-        ${COMPOSE} run --rm ${APP_NAME} "$@"
+        ${COMPOSE} exec ${APP_NAME} "$@"
     fi
 
 else

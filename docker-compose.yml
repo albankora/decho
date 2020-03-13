@@ -11,6 +11,7 @@ services:
       - ./src/:/app
       - cache:/go
       - build-cache:/root/.cache
+      - ./docs/:/docs
     networks:
       - appnet
     ports:
