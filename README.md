@@ -29,6 +29,13 @@ DECHO uses [Reflex](https://github.com/cespare/reflex) for re-running your app w
 ./app prd
 ```
 
+## API-First Approach
+Edit file `docs/petstore.yaml` and generate code using [OAPI-Codegen](github.com/deepmap/oapi-codegen)
+```bash
+# generate code from open api yaml file
+./app codegen
+```
+
 ## The commands list:
 ```bash
 Commands:
@@ -44,4 +51,5 @@ Commands:
  prd           Build production image
  rprd          Run production image
  mod [COMMAND] Command to manage go modules
+ codegen       Generate code from the open api documentation
 ```
