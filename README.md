@@ -30,7 +30,7 @@ DECHO uses [Reflex](https://github.com/cespare/reflex) for re-running your app w
 ```
 
 ## API-First Approach
-Edit file `docs/petstore.yaml` and generate code using [OAPI-Codegen](github.com/deepmap/oapi-codegen)
+Edit file `docs/petstore.yaml` and generate code using [OAPI-Codegen](https://github.com/deepmap/oapi-codegen)
 ```bash
 # generate code from open api yaml file
 ./app codegen
