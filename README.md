@@ -1,9 +1,32 @@
 # DECHO
 Docker setup for [Echo framework](https://github.com/labstack/echo)
 
-## Commands scripts
+## Setup local environment variables
+```bash
+cp .env.example .env
+```
+
+## The command script
 ```bash
 ./app {cmd}
+```
+
+## Initialize local dev
+```bash
+# run the docker container
+./app run
+```
+
+## Dev server URL
+`http://127.0.0.1:3000`
+
+## Re-run on the fly
+DECHO uses [Reflex](https://github.com/cespare/reflex) for re-running your app when you change your code
+
+## Production docker image
+```bash
+# creates a docker production image
+./app prd
 ```
 
 ## The commands list:
@@ -21,19 +44,4 @@ Commands:
  prd           Build production image
  rprd          Run production image
  mod [COMMAND] Command to manage go modules
-```
-
-## Initialize local dev
-```bash
-# run the docker container
-./app run
-```
-
-## Rerun on the fly
-DECHO uses [Reflex](https://github.com/cespare/reflex) for re-running your app when files change
-
-## Production docker image
-```bash
-# creates a docker production image
-./app prd
 ```
