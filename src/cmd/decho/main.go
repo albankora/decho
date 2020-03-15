@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/deepmap/oapi-codegen/pkg/middleware"
+	oapicodegenmiddleware "github.com/deepmap/oapi-codegen/pkg/middleware"
 	echo "github.com/labstack/echo/v4"
 	echomiddleware "github.com/labstack/echo/v4/middleware"
 )
@@ -27,9 +27,14 @@ func main() {
 
 	e.Use(echomiddleware.Logger())
 	e.Use(echomiddleware.Recover())
+	e.Use(echomiddleware.CORSWithConfig(echomiddleware.CORSConfig{
+		AllowOrigins: []string{"*"},
+		AllowMethods: []string{echo.GET, echo.PUT, echo.POST, echo.DELETE},
+	}))
+
 	// Use our validation middleware to check all requests against the
 	// OpenAPI schema.
-	e.Use(middleware.OapiRequestValidator(swagger))
+	e.Use(oapicodegenmiddleware.OapiRequestValidator(swagger))
 
 	petStore := handlers.NewPetStore()
 
