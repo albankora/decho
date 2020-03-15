@@ -17,6 +17,7 @@ WORKDIR /build
 
 # get all dependancies and compile
 RUN go get -d -v ./... \
+    && go mod tidy \
     && go build -ldflags '-w -s' -a -installsuffix cgo -o decho decho/cmd/decho
 
 # start from scratch
