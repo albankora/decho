@@ -30,11 +30,12 @@ DECHO uses [Reflex](https://github.com/cespare/reflex) for re-running your app w
 ```
 
 ## API-First approach
-Edit file `docs/petstore.yaml` and generate code using [OAPI-Codegen](https://github.com/deepmap/oapi-codegen)
+Edit file `src/api/swagger.yaml` and generate code using [OAPI-Codegen](https://github.com/deepmap/oapi-codegen)
 ```bash
 # generate code from open api yaml file
 ./app codegen
 ```
+The `codegen` command reads `src/api/swagger.yaml` and generates two files `server.go` and `types.go` under `src/internal/codegen` those two files are used by the handlers functions. `types.go` has the data structures deffined on `src/api/swagger.yaml` and the `server.go` file has the server side setup.
 
 ## The commands list:
 ```bash
