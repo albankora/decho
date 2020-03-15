@@ -2,7 +2,7 @@ package main
 
 import (
 	"decho/internal/handlers"
-	"decho/internal/openapi"
+	"decho/internal/codegen"
 	"fmt"
 	"os"
 
@@ -13,7 +13,7 @@ import (
 
 func main() {
 
-	swagger, err := openapi.GetSwagger()
+	swagger, err := codegen.GetSwagger()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error loading swagger spec\n: %s", err)
 		os.Exit(1)
@@ -39,7 +39,7 @@ func main() {
 	petStore := handlers.NewPetStore()
 
 	// We now register our petStore above as the handler for the interface
-	openapi.RegisterHandlers(e, petStore)
+	codegen.RegisterHandlers(e, petStore)
 
 	port := 3000
 	e.Logger.Fatal(e.Start(fmt.Sprintf("0.0.0.0:%d", port)))

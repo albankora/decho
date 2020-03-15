@@ -70,8 +70,8 @@ if [ $# -gt 0 ];then
 
     elif [ "$1" == "codegen" ]; then
         shift 1
-        ${COMPOSE} exec ${APP_NAME} oapi-codegen --package=openapi --generate types -o internal/openapi/types.go /docs/petstore.yaml 
-        ${COMPOSE} exec ${APP_NAME} oapi-codegen --package=openapi --generate server,spec -o internal/openapi/server.go /docs/petstore.yaml 
+        ${COMPOSE} exec ${APP_NAME} oapi-codegen --package=codegen --generate types -o internal/codegen/types.go api/swagger.yaml 
+        ${COMPOSE} exec ${APP_NAME} oapi-codegen --package=codegen --generate server,spec -o internal/codegen/server.go api/swagger.yaml 
     else
         ${COMPOSE} exec ${APP_NAME} "$@"
     fi
