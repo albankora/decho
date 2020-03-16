@@ -11,6 +11,6 @@ ENV CGO_ENABLED="0"
 
 WORKDIR /app
 
-COPY build/reflex.conf /
+COPY src/deployments/reflex.conf /
 
 CMD ["/go/bin/reflex", "-c", "/reflex.conf"]

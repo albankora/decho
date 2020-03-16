@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: build/dev.Dockerfile
+      dockerfile: src/deployments/dev.Dockerfile
     environment:
       APP_ENV: "${APP_ENV}"
       APP_NAME: "${APP_NAME}"
@@ -11,7 +11,6 @@ services:
       - ./src/:/app
       - cache:/go
       - build-cache:/root/.cache
-      - ./docs/:/docs
     networks:
       - appnet
     ports:

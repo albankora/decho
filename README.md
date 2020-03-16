@@ -30,7 +30,7 @@ DECHO uses [Reflex](https://github.com/cespare/reflex) for re-running your app w
 ```
 
 ## Project Layout
-DECHO follows the [Standard Go Project Layout](https://github.com/golang-standards/project-layout) so inside `src` directory you will find folders like `cmd`, `api`, `internal` and `pkg`
+DECHO follows the [Standard Go Project Layout](https://github.com/golang-standards/project-layout) so inside `src` directory you will find folders like `cmd`, `api`, `internal`, `pkg` and `deployments`. This is an emerging project layout base on the Go ecosystem.
 
 
 ## API-First approach

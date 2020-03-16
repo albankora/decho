@@ -58,7 +58,7 @@ if [ $# -gt 0 ];then
 
     elif [ "$1" == "prd" ]; then
         shift 1
-        docker build -t decho -f ./build/prd.Dockerfile .
+        docker build -t decho -f ./src/deployments/prd.Dockerfile .
 
     elif [ "$1" == "rprd" ]; then
         shift 1
