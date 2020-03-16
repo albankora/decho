@@ -29,13 +29,17 @@ DECHO uses [Reflex](https://github.com/cespare/reflex) for re-running your app w
 ./app prd
 ```
 
+## Project Layout
+DECHO follows the [Standard Go Project Layout](https://github.com/golang-standards/project-layout) so inside `src` directory you will find folders like `cmd`, `api`, `internal` and `pkg`
+
+
 ## API-First approach
-Edit file `src/api/swagger.yaml` and generate code using [OAPI-Codegen](https://github.com/deepmap/oapi-codegen)
+Edit file `src/api/openapi.yaml` and generate code using [OAPI-Codegen](https://github.com/deepmap/oapi-codegen)
 ```bash
 # generate code from open api yaml file
 ./app codegen
 ```
-The `codegen` command reads `src/api/swagger.yaml` and generates two files `server.go` and `types.go` under `src/internal/codegen` those two files are used by the route handlers functions. `types.go` has the data structures deffined on `src/api/swagger.yaml` and the `server.go` file has the server side setup for the API.
+The `codegen` command reads `src/api/openapi.yaml` and generates two files `server.go` and `types.go` under `src/internal/codegen` those two files are used by the route handlers functions. `types.go` has the data structures deffined on `src/api/openapi.yaml` and the `server.go` file has the server side setup for the API.
 
 ## The commands list:
 ```bash
