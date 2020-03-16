@@ -20,9 +20,6 @@ cp .env.example .env
 ## Dev server URL
 `http://127.0.0.1:3000`
 
-## Re-run on the fly
-DECHO uses [Reflex](https://github.com/cespare/reflex) for re-running your app when you change your code
-
 ## Production docker image
 ```bash
 # creates a docker production image
@@ -46,6 +43,9 @@ Commands:
  mod [COMMAND] Command to manage go modules
  codegen       Generate code from the open api documentation
 ```
+
+## Re-run on the fly
+DECHO uses [Reflex](https://github.com/cespare/reflex) for re-running your app when you change your code
 
 ## Project Layout
 DECHO follows the [Standard Go Project Layout](https://github.com/golang-standards/project-layout) so inside `src` directory you will find folders like `cmd`, `api`, `internal`, `pkg` and `deployments`. This is an emerging project layout base on the Go ecosystem.
