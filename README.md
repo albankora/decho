@@ -29,19 +29,7 @@ DECHO uses [Reflex](https://github.com/cespare/reflex) for re-running your app w
 ./app prd
 ```
 
-## Project Layout
-DECHO follows the [Standard Go Project Layout](https://github.com/golang-standards/project-layout) so inside `src` directory you will find folders like `cmd`, `api`, `internal`, `pkg` and `deployments`. This is an emerging project layout base on the Go ecosystem.
-
-
-## API-First approach
-Edit file `src/api/openapi.yaml` and generate code using [OAPI-Codegen](https://github.com/deepmap/oapi-codegen)
-```bash
-# generate code from open api yaml file
-./app codegen
-```
-The `codegen` command reads `src/api/openapi.yaml` and generates two files `server.go` and `types.go` under `src/internal/codegen` those two files are used by the route handlers functions. `types.go` has the data structures deffined on `src/api/openapi.yaml` and the `server.go` file has the server side setup for the API.
-
-## The commands list:
+## Full list of commands:
 ```bash
 Commands:
 
@@ -58,3 +46,14 @@ Commands:
  mod [COMMAND] Command to manage go modules
  codegen       Generate code from the open api documentation
 ```
+
+## Project Layout
+DECHO follows the [Standard Go Project Layout](https://github.com/golang-standards/project-layout) so inside `src` directory you will find folders like `cmd`, `api`, `internal`, `pkg` and `deployments`. This is an emerging project layout base on the Go ecosystem.
+
+## API-First approach
+Edit file `src/api/openapi.yaml` and generate code using [OAPI-Codegen](https://github.com/deepmap/oapi-codegen)
+```bash
+# generate code from open api yaml file
+./app codegen
+```
+The `codegen` command reads `src/api/openapi.yaml` and generates two files `server.go` and `types.go` under `src/internal/codegen` those two files are used by the route handlers functions. `types.go` has the data structures deffined on `src/api/openapi.yaml` and the `server.go` file has the server side setup for the API.
