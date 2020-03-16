@@ -23,7 +23,7 @@ function usage() {
 }
 
 APP_NAME="app"
-COMPOSE="docker-compose"
+COMPOSE="docker-compose -f src/deployments/docker-compose.yml"
 
 if [ $# -gt 0 ];then
 

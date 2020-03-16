@@ -3,12 +3,12 @@ services:
   app:
     build:
       context: .
-      dockerfile: src/deployments/dev.Dockerfile
+      dockerfile: dev.Dockerfile
     environment:
       APP_ENV: "${APP_ENV}"
       APP_NAME: "${APP_NAME}"
     volumes:
-      - ./src/:/app
+      - ./../../src/:/app
       - cache:/go
       - build-cache:/root/.cache
     networks:
