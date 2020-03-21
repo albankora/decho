@@ -13,13 +13,13 @@ cp .env.example .env
 
 ## Build local dev
 ```bash
-# run the docker container
+# build local docker container and download required libs
 ./app build
 ```
 
 ## Run local dev
 ```bash
-# run the docker container
+# run local docker container
 ./app run
 ```
 
