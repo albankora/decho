@@ -1,4 +1,4 @@
-module decho
+module github.com/albankora/decho
 
 go 1.14
 

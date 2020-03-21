@@ -11,7 +11,7 @@ ENV CGO_ENABLED="0"
 # Create appuser
 RUN adduser -D -g '' appuser
 
-COPY ./src /build
+COPY ./ /build
 
 WORKDIR /build
 

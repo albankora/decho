@@ -11,7 +11,13 @@ cp .env.example .env
 ./app {cmd}
 ```
 
-## Initialize local dev
+## Build local dev
+```bash
+# run the docker container
+./app build
+```
+
+## Run local dev
 ```bash
 # run the docker container
 ./app run
@@ -30,17 +36,18 @@ cp .env.example .env
 ```bash
 Commands:
 
- run           Build and Run local dev app
- stop          Stop your local container
+ build         Build local docker container and download required libs
+ run           Run local docker container
+ stop          Stop your local docker container
  remove        Remove local containers and everything related to them
  test          Run unit tests
  cover         Run unit tests and generate coverage file
  fmt           Format the code with go standards
  vet           Check and reports suspicious constructs
+ mod [COMMAND] Command to manage go modules
  bash          Enter the bash interface
  prd           Build production image
  rprd          Run production image
- mod [COMMAND] Command to manage go modules
  codegen       Generate code from the open api documentation
 ```
 

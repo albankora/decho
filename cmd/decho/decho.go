@@ -1,9 +1,9 @@
 package main
 
 import (
-	"decho/internal/handlers"
-	"decho/internal/codegen"
 	"fmt"
+	"github.com/albankora/decho/internal/codegen"
+	"github.com/albankora/decho/internal/handlers"
 	"os"
 
 	oapicodegenmiddleware "github.com/deepmap/oapi-codegen/pkg/middleware"

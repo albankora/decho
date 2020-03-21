@@ -1,9 +1,9 @@
 package handlers
 
 import (
-	"decho/internal/codegen"
-	"decho/pkg/uuid"
 	"fmt"
+	"github.com/albankora/decho/internal/codegen"
+	"github.com/albankora/decho/pkg/uuid"
 	"net/http"
 	"sync"
 
