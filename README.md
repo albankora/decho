@@ -68,4 +68,4 @@ Edit file `apidoc.yaml` and generate code using [OAPI-Codegen](https://github.co
 # generate code from open api yaml file
 ./app codegen
 ```
-The `codegen` command reads `apidoc.yaml` and generates two files `server.go` and `types.go` under `src/internal/codegen`. `types.go` has the data structures deffined on `apidoc.yaml` and the `server.go` file has the server side setup for the API.
+The `codegen` command reads `apidoc.yaml` and generates two files `server.go` and `types.go` under `internal/codegen`. `types.go` has the data structures deffined on `apidoc.yaml` and the `server.go` file has the server side setup for the API.
