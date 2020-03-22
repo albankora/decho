@@ -13,12 +13,12 @@ function usage() {
   echo " test          Run unit tests"
   echo " cover         Run unit tests and generate coverage file"
   echo " fmt           Format the code with go standards"
-  echo " vet           Check and reports suspicious constructs"
-  echo " mod [COMMAND] Command to manage go modules"
-  echo " bash          Enter the bash interface"
+  echo " vet           Check and report likely mistakes in packages"
+  echo " mod [COMMAND] Commands for go module maintenance"
+  echo " codegen       Generate code from the open api documentation"
+  echo " bash          Enter dockers bash interface"
   echo " prd           Build scratch production image"
   echo " rprd          Run production image"
-  echo " codegen       Generate code from the open api documentation"
   echo ""
   exit 0
 }

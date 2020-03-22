@@ -48,9 +48,9 @@ Commands:
  test          Run unit tests
  cover         Run unit tests and generate coverage file
  fmt           Format the code with go standards
- vet           Check and reports suspicious constructs
- mod [COMMAND] Command to manage go modules
- bash          Enter the bash interface
+ vet           Check and report likely mistakes in packages
+ mod [COMMAND] Commands for go module maintenance
+ bash          Enter dockers bash interface
  prd           Build scratch production image
  rprd          Run production image
  codegen       Generate code from the open api documentation
