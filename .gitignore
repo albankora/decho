@@ -3,6 +3,5 @@
 .git
 .env
 .DS_Store
-go.sum
 test-coverage.out
 test-report.json
