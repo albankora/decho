@@ -1,7 +1,7 @@
 # DECHO
 
-## Why
-This app's goal is to accelerate the process of bootstrapping an Restfull API base golang application
+## Goal
+This goal is to accelerate the process of bootstrapping an Restfull API base golang application
 
 ## How
 Docker is used to accelerate local setup for [Echo framework](https://github.com/labstack/echo) and also you can generate a `scratch` image with a minimum footprint that can be used in production.
