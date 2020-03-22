@@ -16,7 +16,7 @@ function usage() {
   echo " vet           Check and reports suspicious constructs"
   echo " mod [COMMAND] Command to manage go modules"
   echo " bash          Enter the bash interface"
-  echo " prd           Build production image"
+  echo " prd           Build scratch production image"
   echo " rprd          Run production image"
   echo " codegen       Generate code from the open api documentation"
   echo ""

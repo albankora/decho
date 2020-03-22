@@ -1,5 +1,10 @@
 # DECHO
-Docker setup for [Echo framework](https://github.com/labstack/echo)
+
+## Why
+This app's goal is to accelerate the process of bootstrapping an Restfull API base golang application
+
+## How
+Docker is used to accelerate local setup for [Echo framework](https://github.com/labstack/echo) and also you can generate a `scratch` image with a minimum footprint that can be used in production.
 
 ## Setup local environment variables
 ```bash
@@ -46,16 +51,16 @@ Commands:
  vet           Check and reports suspicious constructs
  mod [COMMAND] Command to manage go modules
  bash          Enter the bash interface
- prd           Build production image
+ prd           Build scratch production image
  rprd          Run production image
  codegen       Generate code from the open api documentation
 ```
 
 ## Re-run on the fly
-DECHO uses [Reflex](https://github.com/cespare/reflex) for re-running your app when you change your code
+The app uses [Reflex](https://github.com/cespare/reflex) for re-running your app when you change your code
 
 ## Project Layout
-DECHO follows the [Standard Go Project Layout](https://github.com/golang-standards/project-layout) so inside `src` directory you will find folders like `cmd`, `api`, `internal`, `pkg` and `deployments`. Standard Go Project Layout is an emerging project layout base on the Go ecosystem.
+The app follows the [Standard Go Project Layout](https://github.com/golang-standards/project-layout) so the directory structure includes folders like `cmd`, `internal`, `pkg` and `build`. Standard Go Project Layout is an emerging project layout base on the Go ecosystem.
 
 ## API-First approach
 Edit file `apidoc.yaml` and generate code using [OAPI-Codegen](https://github.com/deepmap/oapi-codegen)
