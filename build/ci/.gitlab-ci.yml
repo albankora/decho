@@ -1,0 +1,36 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+variables:
+  TEST_IMAGE: registry.gitlab.com/user/repo:$CI_COMMIT_REF_NAME
+  RELEASE_IMAGE: registry.gitlab.com/user/repo:latest
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+stages:
+  - build
+  - test
+  - release
+
+build:
+  stage: build
+  script:
+    - docker build --pull -f build/dev.Dockerfile -t $TEST_IMAGE .
+    - docker push $TEST_IMAGE
+
+test:
+  stage: test
+  script:
+    - docker pull $TEST_IMAGE
+    - docker run --rm $TEST_IMAGE go test -v -cover ./...
+
+release:
+  stage: release
+  script:
+    - docker build --pull -f build/prd.Dockerfile -t $RELEASE_IMAGE .
+    - docker push $RELEASE_IMAGE
+  only:
+    - master

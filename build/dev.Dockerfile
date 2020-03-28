@@ -9,8 +9,8 @@ ENV GOARCH="amd64"
 ENV GO111MODULE="on"
 ENV CGO_ENABLED="0"
 
+COPY . /app
+
 WORKDIR /app
 
-COPY reflex.conf /
-
-CMD ["/go/bin/reflex", "-c", "/reflex.conf"]
+COPY build/reflex.conf /

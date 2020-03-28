@@ -2,8 +2,9 @@ version: '3.7'
 services:
   app:
     build:
-      context: .
-      dockerfile: dev.Dockerfile
+      context: ..
+      dockerfile: build/dev.Dockerfile
+    command: ["/go/bin/reflex", "-c", "/reflex.conf"]
     environment:
       APP_ENV: "${APP_ENV}"
       APP_NAME: "${APP_NAME}"
